@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux'
-import chapter from './chapter'
+import user from './user'
 
 const rootReducer = combineReducers({
-  chapter
+  user
 })
 
 export default rootReducer

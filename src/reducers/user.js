@@ -1,6 +1,6 @@
-const chapter = (state = {}, action) => {
+const user = (state = {}, action) => {
   switch (action.type) {
-    case "GET_CHAPTER":
+    case "GET_USER":
       return action.response;
       break;
     default:
@@ -8,4 +8,4 @@ const chapter = (state = {}, action) => {
   }
 }
 
-export default chapter;
+export default user;
