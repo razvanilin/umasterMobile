@@ -9,9 +9,15 @@ import {
   TouchableHighlight
 } from 'react-native';
 
+import login from '../actions/Login'
+
 class App extends Component {
   constructor(props) {
     super(props)
+  }
+
+  _login {
+    login();
   }
 
   render() {
@@ -20,7 +26,8 @@ class App extends Component {
         <Text style={styles.welcome}>uMaster</Text>
         <Image source={require('../../res/logo-color.png')} style={styles.image}/>
         <TouchableHighlight style={styles.button}
-          underlayColor='#99d9f4'>
+          underlayColor='#99d9f4'
+          onPress={this._login}>
           <Text style={styles.buttonText}>Become uMaster</Text>
         </TouchableHighlight>
       </View>
