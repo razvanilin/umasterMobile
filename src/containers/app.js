@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { connect } from 'react-redux'
 import { Router, Scene, Modal, Reducer } from 'react-native-router-flux'
 
 import {
@@ -10,9 +11,9 @@ import {
 import LoginPage from "../components/LoginPage"
 import Dashboard from "../components/Dashboard"
 
-const reducerCreate = params=>{
+const reducerCreate = params => {
     const defaultReducer = Reducer(params);
-    return (state, action)=>{
+    return (state, action) => {
         console.log("ACTION:", action);
         return defaultReducer(state, action);
     }
@@ -21,6 +22,9 @@ const reducerCreate = params=>{
 class App extends Component {
   constructor(props) {
     super(props)
+  }
+
+  componentWillMount() {
   }
 
   render() {
@@ -37,4 +41,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default connect()(App)

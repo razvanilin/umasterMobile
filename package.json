@@ -3,9 +3,12 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start"
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start-dev-win": "set NODE_ENV=development && node node_modules/react-native/local-cli/cli.js start",
+    "start-prod-win": "set NODE_ENV=production && node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
+    "axios": "^0.14.0",
     "react": "15.3.1",
     "react-native": "0.32.0",
     "react-native-lock": "^0.4.0",
