@@ -11,6 +11,12 @@ export function login(dispatch) {
       return;
     }
 
+    // dispatch the token
+    dispatch({
+      type: "CREATE_TOKEN",
+      response: token
+    });
+
     var authorization = token.type + " " + token.idToken;
     console.log(authorization);
     // Authentication worked!

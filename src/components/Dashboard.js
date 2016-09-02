@@ -5,11 +5,14 @@ import {
   Text,
   Image,
   View,
-  TouchableHighlight
+  TouchableHighlight,
+  ScrollView
 } from 'react-native';
+
 
 import { connect } from 'react-redux'
 
+import ActivityCards from '../containers/ActivityCards'
 
 class Dashboard extends Component {
   constructor(props) {
@@ -21,11 +24,9 @@ class Dashboard extends Component {
     const {user} = this.props;
 
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>DashBoard</Text>
-        <Image source={require('../../res/logo-color.png')} style={styles.image}/>
-        {user && user.email && <Text>Welcome, {user.email}</Text>}
-      </View>
+      <ScrollView style={styles.container}>
+      <ActivityCards />
+      </ScrollView>
     );
   }
 }
@@ -33,8 +34,6 @@ class Dashboard extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#4A8E4E',
   },
   welcome: {
@@ -56,12 +55,16 @@ const styles = StyleSheet.create({
 });
 
 Dashboard.propTypes = {
-  user: PropTypes.object
+  user: PropTypes.object.isRequired,
+  token: PropTypes.object.isRequired,
+  activities: PropTypes.array.isRequired
 }
 
 function mapStateToProps(state, ownProps) {
   return {
-    user: state.user
+    user: state.user,
+    token: state.token,
+    activities: state.activities
   }
 }
 
