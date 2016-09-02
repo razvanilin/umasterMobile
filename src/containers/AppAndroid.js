@@ -5,7 +5,10 @@ import { Router, Scene, Modal, Reducer } from 'react-native-router-flux'
 import {
   Navigator,
   PropTypes,
-  View
+  View,
+  DrawerLayoutAndroid,
+  TouchableHighlight,
+  Text
 } from 'react-native';
 
 import LoginPage from "../components/LoginPage"
@@ -27,16 +30,24 @@ class App extends Component {
   componentWillMount() {
   }
 
+  openDrawer() {
+    this.refs['DRAWER'].openDrawer()
+  }
+
   render() {
     return (
-      <Router createReducer={reducerCreate}>
-        <Scene key="modal" component={Modal}>
-          <Scene key="root" hideNavBar={true}>
-            <Scene key="loginPage" component={LoginPage} title="Login" initial={true} />
-            <Scene key="dashboard" component={Dashboard} title="Dashboard" />
-          </Scene>
-        </Scene>
-      </Router>
+      <DrawerLayoutAndroid
+      drawerWidth={300}
+      drawerPosition={DrawerLayoutAndroid.positions.Left}
+      renderNavigationView={() => navigationView}>
+      <View style={{flex: 1, alignItems: 'center'}}>
+        <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>Hello</Text>
+        <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>World!</Text>
+        <TouchableHighlight onPress={this.openDrawer}>
+          <Text>{'Open Drawer'}</Text>
+        </TouchableHighlight>
+      </View>
+    </DrawerLayoutAndroid>
     );
   }
 }

@@ -5,7 +5,7 @@
  */
 
 import React, { Component } from 'react';
-import Root from './src/root'
+import Root from './src/IosRoot'
 
 import {
   AppRegistry

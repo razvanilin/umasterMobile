@@ -2,15 +2,25 @@ import React, {Component,PropTypes} from 'react'
 import {
   StyleSheet,
   Text,
-  TouchableHighlight
+  TouchableOpacity,
+  View
 } from 'react-native';
 
+const MK = require('react-native-material-kit');
+const {
+  MKButton,
+  MKColor,
+} = MK;
+
 import { connect } from 'react-redux'
-import { Actions } from 'react-native-router-flux';
 
 import {login} from '../actions/Login'
 
 var dispatch;
+
+const ColoredRaisedButton = MKButton.coloredButton()
+.withBackgroundColor('#A76F94')
+.build();
 
 class Login extends Component {
   constructor(props) {
@@ -28,11 +38,13 @@ class Login extends Component {
 
   render() {
     return (
-      <TouchableHighlight style={styles.button}
-        underlayColor='#99d9f4'
-        onPress={this._login}>
-        <Text style={styles.buttonText}>Become uMaster</Text>
-      </TouchableHighlight>
+      <View>
+      <ColoredRaisedButton onPress={() => {this._login()}}>
+        <Text pointerEvents="none"
+        style={styles.buttonText}>Become uMaster</Text>
+        </ColoredRaisedButton>
+
+      </View>
     );
   }
 }
@@ -40,7 +52,7 @@ class Login extends Component {
 const styles = StyleSheet.create({
   button: {
     height: 36,
-    backgroundColor: '#A76F94',
+    backgroundColor: '#4A8E4E',
     borderColor: '#A76F94',
     borderWidth: 30,
     borderRadius: 8,
@@ -49,7 +61,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   buttonText: {
-    fontSize: 18,
+    fontSize: 25,
     color: 'white',
     alignSelf: 'center'
   }

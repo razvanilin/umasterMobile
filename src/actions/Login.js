@@ -23,12 +23,13 @@ export function login(dispatch) {
       }
     })
     .then(response => {
+      console.log("Hello");
       dispatch({
         type: "GET_USER",
         response: response.data.user
       });
 
-      Actions.dashboard();
+      Actions.drawer();
 
     })
     .catch(error => {
