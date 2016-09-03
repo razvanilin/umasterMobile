@@ -8,7 +8,7 @@ export function getActivities(props) {
 
   axios({
     method: 'get',
-    url: 'http://192.168.0.13:3031/script?user=' + props.user.email,
+    url: 'http://192.168.0.5:3031/script?user=' + props.user.email,
     headers: {
       "Authorization": authorization
     }

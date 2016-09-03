@@ -33,7 +33,7 @@ class Login extends Component {
   }
 
   _login() {
-    login(dispatch);
+    login(this.props.dispatch);
   }
 
   render() {
@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 25,
+    padding: 10,
     color: 'white',
     alignSelf: 'center'
   }

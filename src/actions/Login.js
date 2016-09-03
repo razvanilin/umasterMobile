@@ -22,7 +22,7 @@ export function login(dispatch) {
     // Authentication worked!
     axios({
       method: 'post',
-      url: 'http://192.168.0.13:3031/user',
+      url: 'http://192.168.0.5:3031/user',
       data: profile,
       headers: {
         "Authorization": authorization
