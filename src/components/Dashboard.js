@@ -19,6 +19,9 @@ class Dashboard extends Component {
     super(props)
   }
 
+  componentDidMount() {
+  }
+
   render() {
 
     const {user} = this.props;
